@@ -14,7 +14,7 @@ pipeline {
      }
    
      stage ('Report') {
-      Steps {
+      steps {
     	cucumber fileIncludePattern: '**/*.json', sortingMethod: 'ALPHABETICAL'
       }
      }
