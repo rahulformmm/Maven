@@ -1,13 +1,25 @@
-pipeline {
-    agent any
+pipeline{
+   agent any
     stages {
-      stage ('Hello') {
-        steps {
-          sh 'echo Hello World'
-        }
+     stage ('Build') {
+      steps {
+        git 'https://github.com/rahulformmm/Maven.git'
       }
+     }
+    
+     stage ('Test') {
+       steps {
+    	sh 'mvn compile'
+      }
+     }
+   
+     stage ('Report'){
+      Steps {
+    	cucumber fileIncludePattern: '**/*.json', sortingMethod: 'ALPHABETICAL'
+      }
+     }
    }
 }
 
-  
+
   
